@@ -1,6 +1,9 @@
-package com.example.demo.model;
+package com.hr.employee.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Employee {
@@ -8,8 +11,20 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Name is required")
+    @Size(max = 100, message = "Name must be at most 100 characters")
+    @Column(nullable = false)
     private String name;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email must be valid")
+    @Size(max = 150, message = "Email must be at most 150 characters")
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @NotBlank(message = "Job title is required")
+    @Size(max = 100, message = "Job title must be at most 100 characters")
+    @Column(nullable = false)
     private String jobTitle;
 
     // Constructors

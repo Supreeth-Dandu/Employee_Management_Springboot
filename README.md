@@ -4,7 +4,7 @@ Simple Spring Boot backend for managing employees with a clean controller/servic
 
 ## What it does
 - Create, read, update, and delete employee records
-- Uses an in-memory H2 database (data resets on restart)
+- Uses PostgreSQL (configured in `backen/src/main/resources/application.properties`)
 
 ## Run locally
 From the `backen` folder:
@@ -28,6 +28,5 @@ Backend runs on `http://localhost:8080`.
 }
 ```
 
-## H2 Console
-Enabled at `http://localhost:8080/h2-console`  
-JDBC URL: `jdbc:h2:mem:testdb`
+## Database notes
+This project is currently set up for PostgreSQL. 
